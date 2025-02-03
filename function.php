@@ -190,9 +190,9 @@ function  printSuccess($data=null)
 {
     echo json_encode(array("status" => "success", "data" => $data));
 }
-function  printFailure($message = "none") 
+function  printFailure($data=null) 
 {
-    echo json_encode(array("status" => "failure" , "message" => $message));
+    echo json_encode(array("status" => "failure" , "data" => $data));
 }
 
 

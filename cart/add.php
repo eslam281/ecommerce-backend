@@ -5,8 +5,8 @@
  $userid = filterRequest('userid');
  $itemsid= filterRequest('itemsid');
  $data = array(
-    "favorite_usersid"  =>   $userid , 
-    "favorite_itemsid"  =>   $itemsid
+    "cart_usersid"  =>   $userid , 
+    "cart_itemsid"  =>   $itemsid
     );
 
 //  getData("cart","cart_itemsid = $itemsid AND cart_userid = $userid",null,false);

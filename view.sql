@@ -16,3 +16,7 @@ SELECT items.*,itemimage.* FROM items
 INNER JOIN itemimage on itemimage.itemimage_id = items.items_id
 
 
+CREATE OR REPLACE VIEW cartview AS
+SELECT SUM(items.items_price) as itemsprice, COUNT(cart_itemsid) AS countitems ,cart.*,items.* FROM `cart` 
+INNER JOIN items ON cart_itemsid = items.items_id
+GROUP BY cart_usersid ,cart_itemsid

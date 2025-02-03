@@ -8,7 +8,7 @@
 
 $count=0;
  $stmt = $con->prepare(
-    "SELECT COUNT(cart.cart_id) as countitems FROM `cart` WHERE cart_usersid =19 AND cart_itemsid= 2");
+    "SELECT COUNT(cart.cart_id) as countitems FROM `cart` WHERE cart_usersid =$userid AND cart_itemsid= $itemsid");
 
  $stmt->execute();
     

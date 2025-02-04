@@ -26,10 +26,12 @@ function getAllData($table, $where = null, $values = null, $json = true)
         }
         return $count;
     }
-    elseif ($count > 0){
-        return  $data;
-    }else{
-        return json_encode(array("status" => "failure"));
+    else{
+        if ($count > 0){
+        return  array("status" => "success", "data" => $data);
+        }else{
+        return array("status" => "failure");
+        }
     }
 }
 

@@ -6,7 +6,6 @@
  $itemsid= filterRequest('itemsid');
 //  $data = array("cart_usersid"=>$userid , "cart_itemsid" =>$itemsid);
 
-$count=0;
  $stmt = $con->prepare(
     "SELECT COUNT(cart.cart_id) as countitems FROM `cart` WHERE cart_usersid =$userid AND cart_itemsid= $itemsid");
 

@@ -3,6 +3,7 @@
  include "../connect.php";
 
  $userid  = filterRequest('userid');
+ $name  = filterRequest('name');
  $city    = filterRequest('city');
  $street  = filterRequest('street');
  $lat     = filterRequest('lat');
@@ -10,6 +11,7 @@
 
  $data    = array(
     "address_usersid" =>   $userid , 
+    "address_name"    =>   $name , 
     "address_city"    =>   $city,
     "address_street"  =>   $street,
     "address_lat"     =>   $lat,

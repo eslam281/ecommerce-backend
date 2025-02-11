@@ -9,15 +9,20 @@ $ordersprice = filterRequest("ordersprice");
 $couponid = filterRequest("couponid");
 $coupondiscount = filterRequest("coupondiscount");
 $pamentmethod = filterRequest("pamentmethod");
-$totalprice = $ordersprice;
+
+if($orderstyp == "1"){
+    $pricedelivery=0;
+}
+$totalprice = $ordersprice+ $pricedelivery;
 
 $now = date("Y-m-d H:i:s");
-
 $checkcoupon = getData("coupon"," coupon_id = '$couponid' AND coupon_expiredate > '$now' AND coupon_count > 0"
 ,null,false);
 
 if($checkcoupon>0){
-    $totalprice = $totalprice - $ordersprice * $coupondiscount/100 + $pricedelivery;
+    $totalprice = $totalprice - $ordersprice * $coupondiscount/100 ;
+    $stmt= $con->prepare("UPDATE `coupon` SET `coupon_count`= coupon_count-1 Where coupon_id = '$couponid'");
+    $stmt->execute();
 }
 
 $data = array(

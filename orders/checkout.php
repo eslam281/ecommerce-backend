@@ -19,4 +19,4 @@ $data = array(
     "orders_paymentmethod" => $pamentmethod,
 );
 
-insertData("orders",$data);
+$count = insertData("orders",$data,false);

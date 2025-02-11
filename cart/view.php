@@ -7,7 +7,8 @@ $userid = filterRequest('userid');
 $data = getAllData("cartview","cart_usersid=$userid",null,false);
 
 $stmt = $con->prepare("SELECT SUM(itemsprice) as totalprice,
- SUM(countitems) as totalcount FROM `cartview` WHERE cart_usersid=$userid GROUP BY cart_usersid");
+ SUM(countitems) as totalcount FROM `cartview` WHERE cart_usersid=$userid AND cart_orders = 0
+ GROUP BY cart_usersid");
 
 $stmt->execute();
     

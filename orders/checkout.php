@@ -7,7 +7,18 @@ $orderstyp = filterRequest("orderstyp");
 $pricedelivery = filterRequest("pricedelivery");
 $ordersprice = filterRequest("ordersprice");
 $couponid = filterRequest("couponid");
+$coupondiscount = filterRequest("coupondiscount");
 $pamentmethod = filterRequest("pamentmethod");
+$totalprice = $ordersprice;
+
+$now = date("Y-m-d H:i:s");
+
+$checkcoupon = getData("coupon"," coupon_id = '$couponid' AND coupon_expiredate > '$now' AND coupon_count > 0"
+,null,false);
+
+if($checkcoupon>0){
+    $totalprice = $totalprice - $ordersprice * $coupondiscount/100 + $pricedelivery;
+}
 
 $data = array(
     "orders_usersid" => $userid,
@@ -16,6 +27,7 @@ $data = array(
     "orders_pricedelivery" => $pricedelivery,
     "orders_price" => $ordersprice,
     "orders_coupon" => $couponid,
+    "orders_totalprice" => $totalprice,
     "orders_paymentmethod" => $pamentmethod,
 );
 

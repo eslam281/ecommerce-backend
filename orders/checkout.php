@@ -20,3 +20,13 @@ $data = array(
 );
 
 $count = insertData("orders",$data,false);
+
+if($count > 0){
+    $stmt = $con->prepare("SELECT Max(orders_id) from orders");
+    $stmt->execute();
+    $maxid = $stmt->fetchColumn();
+    
+    $data = array("cart_orders"=>$maxid);
+
+    updateData("cart",$data,"cart_usersid =$userid AND cart_orders =0");
+}

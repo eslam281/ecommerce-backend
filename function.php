@@ -206,7 +206,7 @@ echo "Success" ;
 }
 
 
-function sendGCM($title, $message, $topic, $pageid, $pagename)
+function sendGCM($title, $message, $topic, $pageid, $pagename,$accesstoken)
 {
 
 
@@ -239,12 +239,11 @@ function sendGCM($title, $message, $topic, $pageid, $pagename)
     
     //token
     //fP36dkT9T6OAIfMVwyEonQ:APA91bF7-s1uFpcXjf8zoiC-Ky6Ujbr2DVjhm9XxVDJTeV-YcJBRAGvJZ7HtPxWpjAkEPbH_jft6lzqNNvWWqWZVUsMvrXg5tfYbVszQn_2Ium0h_ydMWwg
-    //Access token
-    //ya29.c.c0ASRK0GZJA07RAY1TJEdbR1C9yE03ZyQgf38M6MqBPzIixP5EXbffB0giMwBuxI5w91vbqMavHUDrIJJd555-jQdQqWm2xQSjzmydGotTY2iHMANT8_vD3ib7bC79XDScIySPZzoKAguIF7LDCwgWCp7RHFcgAVPGdhji2ywmJMMI8_3tEwLKSBu8_Pwecxo2pbmyLAgW1jzLIBwgFinEvwVOWscWyOTpXoC4l5AV9nvVIg6Rf_bcjsbYBPlOmFXYIWp8szA1O-2UBhlXpyq-FKX-LjMwizL6e8aa8QparU_NaF5nkQrZVhHl0enVNvdfRyvJEZko9IYPZP48AE4CVEO4N9vLYPprSaXbF224srMKd9DKsuO5ux7itigcgAT391DRQlZ0O2874Se_fBdu0wbRZ63b6fasFrBoXnb1_-_xzpdW-J0sJ1IcRnwodFn06ecrj8mYVr7qg4X90f9ufYaFZsevSfx-W7Ym0x4UgX_nUJca08lOj_0MhiyhacBkJdyeQcc1SsyVh4InFvzWjp0ZV12boWghrUg3mYyntQ7rIa3-lyyFlkQ6_Zu9qbiXsbsXq7yO6q00OR4lbn-7J2xZQgV0lBw_XaZny938drbV9rBjIr9UQMn-4chx8lgSx7v6Uq1ze9Qf_kfvUubgkMgIXaF8e_I66z5fMXuuBc_Ujtbh1WZ3z-vBrYfVv508qgUl0dmBQ0zpzlnafUdh3Q3sca-VbUl9j5ZrJ_ZdjoJxyvdnyYcnmmxB_xgb74_Qqo7VgW0ZB8VM6MM7xhBiav-RvZZjS--rVqt86QX4BadwnUy7c49y8ZIn8pB1iUhJw6SjpyB-zan3JBw6kVy660FsiuzjQ92dgfpMeXu_16rs3yf2-hnmOnbMFYinz2oSJJZrIMz35eluIsR-t_zgfUIMv-42xZgmQM1RXn598ObOMqlsiO6F7gy5kR3t4aldhqmXZXp7VSeyIaVOkiWdQzhjjzMBBcWkdX9RfzWF
+    
     
     $fields = json_encode($fields);
     $headers = array(
-        'Authorization: Bearer ' . "ya29.c.c0ASRK0GZJA07RAY1TJEdbR1C9yE03ZyQgf38M6MqBPzIixP5EXbffB0giMwBuxI5w91vbqMavHUDrIJJd555-jQdQqWm2xQSjzmydGotTY2iHMANT8_vD3ib7bC79XDScIySPZzoKAguIF7LDCwgWCp7RHFcgAVPGdhji2ywmJMMI8_3tEwLKSBu8_Pwecxo2pbmyLAgW1jzLIBwgFinEvwVOWscWyOTpXoC4l5AV9nvVIg6Rf_bcjsbYBPlOmFXYIWp8szA1O-2UBhlXpyq-FKX-LjMwizL6e8aa8QparU_NaF5nkQrZVhHl0enVNvdfRyvJEZko9IYPZP48AE4CVEO4N9vLYPprSaXbF224srMKd9DKsuO5ux7itigcgAT391DRQlZ0O2874Se_fBdu0wbRZ63b6fasFrBoXnb1_-_xzpdW-J0sJ1IcRnwodFn06ecrj8mYVr7qg4X90f9ufYaFZsevSfx-W7Ym0x4UgX_nUJca08lOj_0MhiyhacBkJdyeQcc1SsyVh4InFvzWjp0ZV12boWghrUg3mYyntQ7rIa3-lyyFlkQ6_Zu9qbiXsbsXq7yO6q00OR4lbn-7J2xZQgV0lBw_XaZny938drbV9rBjIr9UQMn-4chx8lgSx7v6Uq1ze9Qf_kfvUubgkMgIXaF8e_I66z5fMXuuBc_Ujtbh1WZ3z-vBrYfVv508qgUl0dmBQ0zpzlnafUdh3Q3sca-VbUl9j5ZrJ_ZdjoJxyvdnyYcnmmxB_xgb74_Qqo7VgW0ZB8VM6MM7xhBiav-RvZZjS--rVqt86QX4BadwnUy7c49y8ZIn8pB1iUhJw6SjpyB-zan3JBw6kVy660FsiuzjQ92dgfpMeXu_16rs3yf2-hnmOnbMFYinz2oSJJZrIMz35eluIsR-t_zgfUIMv-42xZgmQM1RXn598ObOMqlsiO6F7gy5kR3t4aldhqmXZXp7VSeyIaVOkiWdQzhjjzMBBcWkdX9RfzWF",
+        'Authorization: Bearer ' . $accesstoken,
         'Content-Type: application/json'
     );
 

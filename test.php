@@ -1,4 +1,7 @@
 <?php
 include "connect.php";
 
-getAllData("users","users_name = 'eslamas'");
+sendGCM("hi","How Are You","users","","");
+sendGCM("hi eslam","How Are You eslam","users19","","");
+
+echo "Send";

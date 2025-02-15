@@ -12,7 +12,7 @@ $data=array(
 $count = updateData("orders",$data,"orders_id=$orderid AND orders_status = 0",false);
 
 if ($count > 0) {
-    $count =  insertNofiy("success","The order has been approved",$userid,$accesstoken,"","refreshOrderPeding");
+    $count =  insertNofiy("success","The order $orderid has been approved",$userid,$accesstoken,"","refreshOrderPeding");
     if ($count > 0) {
     //     $result= sendGCM("success","The order has been approved","users$userid","",
     // "refreshOrderPeding",$accesstoken);

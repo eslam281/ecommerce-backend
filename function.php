@@ -255,6 +255,15 @@ function sendGCM($title, $message, $topic, $pageid, $pagename,$accesstoken)
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
     $result = curl_exec($ch);
-    return $result;
     curl_close($ch);
+    return $result;
+}
+
+function insertNofiy($title,$body,$userid,$accesstoken,$pageid,$pagename){
+    global $con;
+    $stmt = $con->prepare("INSERT INTO `notification`(`notification_title`, `notification_body`, `notification_userid`) VALUES ('$title','$body',$userid)");
+    $stmt->execute();
+
+    sendGCM($title,$body,"users$userid",$pageid,$pagename,$accesstoken);
+    return $stmt->rowCount();
 }

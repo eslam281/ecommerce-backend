@@ -9,7 +9,19 @@ $data=array(
 "orders_status" => 1
 );
 
-updateData("orders",$data,"orders_id=$orderid AND orders_status =0");
+$count = updateData("orders",$data,"orders_id=$orderid AND orders_status = 0",false);
 
-sendGCM("success","The order has been approved","users$userid","","order",$accesstoken);
+if ($count > 0) {
+    $count =  insertNofiy("success","The order has been approved",$userid,$accesstoken,"","refreshOrderPeding");
+    if ($count > 0) {
+    //     $result= sendGCM("success","The order has been approved","users$userid","",
+    // "refreshOrderPeding",$accesstoken);
+    // $result =json_Decode($result);,"result" =>$result
+    echo json_encode(array("status" => "success" ));
+    } else {
+        echo json_encode(array("status" => "failure add Notification"));
+    }
+} else {
+    echo json_encode(array("status" => "failure update"));
+}
 

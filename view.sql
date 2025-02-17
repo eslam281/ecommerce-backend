@@ -24,8 +24,9 @@ GROUP BY cart.cart_itemsid, cart.cart_usersid ,cart.cart_orders
 
 
 CREATE OR REPLACE VIEW ordersview AS
-SELECT orders.*,address.* FROM orders
+SELECT orders.*,address.* ,coupon.* FROM orders
 LEFT JOIN address ON address.address_id = orders.orders_address
+LEFT JOIN coupon ON coupon.coupon_id = orders.orders_coupon
 
 
 CREATE OR REPLACE VIEW orderdetailsview AS

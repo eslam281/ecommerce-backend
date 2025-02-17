@@ -29,8 +29,7 @@ LEFT JOIN address ON address.address_id = orders.orders_address
 
 
 CREATE OR REPLACE VIEW orderdetailsview AS
-SELECT SUM(items.items_price-(items.items_price*items.items_discount/100)) as itemsprice, COUNT(cart_itemsid) AS countitems ,cart.*,items.*,ordersview.* FROM `cart` 
+SELECT SUM(items.items_price-(items.items_price*items.items_discount/100)) as itemsprice, COUNT(cart_itemsid) AS countitems ,cart.*,items.*FROM `cart` 
 INNER JOIN items ON items.items_id = cart_itemsid
-INNER JOIN ordersview ON ordersview.orders_id =cart.cart_orders
 where cart.cart_orders != 0
 GROUP BY cart.cart_itemsid, cart.cart_usersid ,cart.cart_orders

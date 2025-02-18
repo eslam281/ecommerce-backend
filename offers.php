@@ -3,4 +3,4 @@
 include "connect.php";
 
 
-getAllData("items"," items_discount != 0");
+getAllData("itemsview"," items_discount != 0");

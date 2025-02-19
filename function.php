@@ -42,7 +42,7 @@ function getData($table, $where = null, $values = null,$json=true)
     if($where == null){
         $stmt = $con->prepare("SELECT  * FROM $table");
     }else{
-        $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
+        $stmt = $con->prepare("SELECT  * FROM $table WHERE $where ");
     }
     $stmt->execute($values);
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +53,6 @@ function getData($table, $where = null, $values = null,$json=true)
         } else {
             echo json_encode(array("status" => "failure"));
         }
-        return $count;
     }
     elseif ($count > 0){
         return  $data;

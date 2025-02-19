@@ -34,3 +34,9 @@ SELECT SUM(items.items_price-(items.items_price*items.items_discount/100)) as it
 INNER JOIN items ON items.items_id = cart_itemsid
 where cart.cart_orders != 0
 GROUP BY cart.cart_itemsid, cart.cart_usersid ,cart.cart_orders
+
+CREATE or REPLACE VIEW itemstopselling as
+SELECT count(cart_id) as countitems,cart.*,items.* FROM `cart` 
+INNER JOIN items ON items.items_id = cart_itemsid
+WHERE cart_orders != 0 
+GROUP by cart_itemsid ORDER BY countitems DESC

@@ -12,6 +12,6 @@ $stmt = $con->prepare("SELECT SUM(itemsprice) as totalprice,
 
 $stmt->execute();
     
- $datacountprice = $stmt->fetch(PDO::FETCH_ASSOC);
+$datacountprice = $stmt->fetch(PDO::FETCH_ASSOC);
 
- echo json_encode(array("status" => "success", "datacart" => $data,"datacountprice" => $datacountprice));
+echo json_encode(array("status" => "success", "datacart" => $data,"datacountprice" => $datacountprice));

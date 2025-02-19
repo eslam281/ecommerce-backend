@@ -11,4 +11,4 @@ $data = [
     "orders_noterating" => "$comment",
 ];
 
-updateData("orderid", $data,"orders_id = $orderid");
+updateData("orders", $data,"orders_id = $orderid");

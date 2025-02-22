@@ -19,7 +19,7 @@ if($count>0){
         "delivery_password"   => $password,
         "delivery_email"      => $email,
         "delivery_phone"      => $phone,
-        "delivery_verfiycode" => $verfiycode,
+        "delivery_verifycode" => $verfiycode,
     );
     // sendEmail($email,"Verfiy code ecommerce app ","Verfiy code $verfiycode");
     insertData("delivery",$data,);

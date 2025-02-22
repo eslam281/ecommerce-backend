@@ -4,7 +4,7 @@ $email = filterRequest("email");
 
 $verfiycode = filterRequest("verfiycode");
 
-$stmt =$con->prepare("SELECT * FROM delivery WHERE delivery_email = '$email' AND delivery_verfiycode= '$verfiycode'");
+$stmt =$con->prepare("SELECT * FROM delivery WHERE delivery_email = '$email' AND delivery_verifycode= '$verfiycode'");
 $stmt ->execute();
 
 $count =$stmt->rowCount();

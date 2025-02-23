@@ -7,7 +7,8 @@ $deliveryid = filterRequest("deliveryid");
 $accesstoken = filterRequest("accesstoken");
 
 $data=array(
-"orders_status" => 3
+"orders_status" => 3,
+"orders_delivery" =>$deliveryid
 );
 
 updateData("orders",$data,"orders_id=$orderid AND orders_status = 2",false);

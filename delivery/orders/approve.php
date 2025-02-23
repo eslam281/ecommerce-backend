@@ -11,7 +11,7 @@ $data=array(
 "orders_delivery" =>$deliveryid
 );
 
-updateData("orders",$data,"orders_id=$orderid AND orders_status = 2",false);
+updateData("orders",$data,"orders_id=$orderid AND orders_status = 2");
 
 
 // insertNofiy("success","Your order is on the way",$userid,$accesstoken,"","refreshOrderPeding");

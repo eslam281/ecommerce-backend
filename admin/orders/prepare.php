@@ -10,14 +10,14 @@ if($ordertype == "0"){
 
     $data=array("orders_status" => 2 );
 
-    insertNofiy("success","The order $orderid has been approved",$userid,$accesstoken,"","refreshOrderPeding");
+    insertNofiy("success","The order $orderid has been approved","users$userid",$userid,$accesstoken,"","refreshOrderPeding");
 
     sendGCM("Alert","there is order waiting approve","delivery","","","");
 
 }else{
     $data=array("orders_status" => 4);
 
-    insertNofiy("success","The order $orderid has been risved",
+    insertNofiy("success","The order $orderid has been risved","users$userid",
     $userid,$accesstoken,"","refreshOrderPeding");
 }
 

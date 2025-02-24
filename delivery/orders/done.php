@@ -12,6 +12,7 @@ $data=array(
 updateData("orders",$data,"orders_id=$orderid AND orders_status = 3");
 
 
-// insertNofiy("success","Your order has been deliveried",$userid,$accesstoken,"","refreshOrderPeding");
+insertNofiy("success","Your order has been deliveried","users$userid",
+$userid,$accesstoken,"","refreshOrderPeding");
 
 // sendGCM("Alert","the order has been deliveried to the costomer","admain","","","");

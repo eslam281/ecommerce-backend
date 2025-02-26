@@ -5,13 +5,13 @@ $table = "items";
 
 $name   = filterRequest("name");
 $namear = filterRequest("namear");
-$categ = filterRequest("items_categ");
-$desc = filterRequest("items_desc");
-$descar = filterRequest("items_desc_ar");
-$count = filterRequest("items_count");
-$active = filterRequest("items_active");
-$price = filterRequest("items_price");
-$discount = filterRequest("items_discount");
+$categ = filterRequest("categ");
+$desc = filterRequest("desc");
+$descar = filterRequest("desc_ar");
+$count = filterRequest("count");
+$active = filterRequest("active");
+$price = filterRequest("price");
+$discount = filterRequest("discount");
 
 $imagename = imageUpload("../../upload/items/","files");
 
@@ -19,7 +19,6 @@ $imagename = imageUpload("../../upload/items/","files");
 $data = array(
 "items_name"=> $name,
 "items_name_ar"=> $namear,
-"items_categ "=> $categ,
 "items_desc"=> $desc,
 "items_desc_ar"=> $descar,
 "items_image"=> $imagename,
@@ -27,6 +26,7 @@ $data = array(
 "items_active"=> $active,
 "items_price"=> $price,
 "items_discount"=> $discount,
+"items_categ"=> $categ,
 );
 
 insertData($table, $data);

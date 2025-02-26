@@ -13,6 +13,7 @@ $count = filterRequest("items_count");
 $active = filterRequest("items_active");
 $price = filterRequest("items_price");
 $discount = filterRequest("items_discount");
+$imagenameold = filterRequest("imagenameold");
 
 $res = imageUpload("../../upload/items/","files");
 
@@ -20,7 +21,7 @@ if($res == "empty"){
     $data = array(
         "items_name"=> $name,
         "items_name_ar"=> $namear,
-        "items_categ "=> $categ,
+        "items_categ"=> $categ,
         "items_desc"=> $desc,
         "items_desc_ar"=> $descar,
         "items_count"=> $count,
@@ -32,10 +33,9 @@ if($res == "empty"){
  
     deleteFile("../../upload/items/",$imagenameold);
     $data = array(
-       
         "items_name"=> $name,
         "items_name_ar"=> $namear,
-        "items_categ "=> $categ,
+        "items_categ"=> $categ,
         "items_desc"=> $desc,
         "items_desc_ar"=> $descar,
         "items_count"=> $count,

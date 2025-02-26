@@ -1,11 +1,11 @@
 <?php
 include '../../connect.php';
 
-$table = "categroies";
+$table = "categories";
 
 $id = filterRequest("id");
 $imagename = filterRequest("imagename");
 
-deleteFile("../../upload/categroies",$imagename);
+deleteFile("../../upload/categories/",$imagename);
 
-deleteData($table, "categroies_id =$id");
+deleteData($table, "categories_id =$id");

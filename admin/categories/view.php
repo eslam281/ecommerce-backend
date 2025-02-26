@@ -2,4 +2,4 @@
 include '../../connect.php';
 
 
-getAllData("categroies");
+getAllData("categories");

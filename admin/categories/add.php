@@ -1,12 +1,12 @@
 <?php
 include '../../connect.php';
 
-$table = "categroies";
+$table = "categories";
 
 $name = filterRequest("name");
 $namear = filterRequest("namear");
 
-$imagename = imageUpload("../../upload/categroies","files");
+$imagename = imageUpload("../../upload/categories/","files");
 
 
 $data = array(

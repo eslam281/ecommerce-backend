@@ -9,7 +9,6 @@ $categ = filterRequest("categ");
 $desc = filterRequest("desc");
 $descar = filterRequest("desc_ar");
 $count = filterRequest("count");
-$active = filterRequest("active");
 $price = filterRequest("price");
 $discount = filterRequest("discount");
 
@@ -23,7 +22,7 @@ $data = array(
 "items_desc_ar"=> $descar,
 "items_image"=> $imagename,
 "items_count"=> $count,
-"items_active"=> $active,
+"items_active"=> "1",
 "items_price"=> $price,
 "items_discount"=> $discount,
 "items_categ"=> $categ,

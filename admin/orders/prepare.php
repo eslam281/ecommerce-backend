@@ -6,7 +6,7 @@ $userid = filterRequest("userid");
 // $accesstoken = filterRequest("accesstoken");
 $ordertype = filterRequest("ordertype");
 
-if($ordertype == "0"){
+if($ordertype == 0){
 
     $data=array("orders_status" => 2 );
 
@@ -22,6 +22,7 @@ if($ordertype == "0"){
 }
 
 
-updateData("orders",$data,"orders_id=$orderid AND orders_status = 1",false);
+// updateData("orders",$data,"orders_id=$orderid AND orders_status = 1",false);
+updateData("orders",$data,"orders_id=$orderid AND orders_status = 1");
 
 

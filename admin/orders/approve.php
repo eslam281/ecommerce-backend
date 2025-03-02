@@ -9,7 +9,8 @@ $data=array(
 "orders_status" => 1
 );
 
-$count = updateData("orders",$data,"orders_id=$orderid AND orders_status = 0",false);
+updateData("orders",$data,"orders_id=$orderid AND orders_status = 0");
+// $count = updateData("orders",$data,"orders_id=$orderid AND orders_status = 0",false);
 
 // if ($count > 0) {
 //     $count =  insertNofiy("success","The order $orderid has been approved","users$userid"

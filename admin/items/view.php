@@ -2,4 +2,4 @@
 include '../../connect.php';
 
 
-getAllData("items");
+getAllData("items1view");

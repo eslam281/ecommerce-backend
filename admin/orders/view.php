@@ -2,4 +2,4 @@
 
 include "../../connect.php";
 
-getAllData("ordersview","orders_status != 4");
+getAllData("ordersview","orders_status = 0");
